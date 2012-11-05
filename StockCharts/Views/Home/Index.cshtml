@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+    @Styles.Render("~/Content/kendo.common.min.css")
+    @Styles.Render("~/Content/kendo.default.min.css")
+    @Styles.Render("~/Content/kendo.dataviz.min.css")
+
+    <style>
+
+        .wrapper {
+            padding-top: 100px;
+            width: 100%;
+        }
+
+        #stockChart {
+            margin: auto;
+            width: 768px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div id="stockChart"></div>
+    </div>
+    
+
+    @Scripts.Render("~/Scripts/jquery.min.js")
+    @Scripts.Render("~/Scripts/kendo.all.min.js")
+
+    <script>
+
+        (function ($) {
+
+            var chart = $("#stockChart").kendoStockChart({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: function () {
+                                return "stocks/quotes/msft";
+                            },
+                            dataType: "json",
+                            type: "GET"
+                        }
+                    },
+                    schema: {
+                        data: "Quotes"
+                    }
+                },
+                title: {
+                    text: "Microsoft Corporation (MSFT)"
+                },
+                dateField: "Date",
+                series: [{
+                    type: "candlestick",
+                    openField: "Open",
+                    highField: "High",
+                    lowField: "Low",
+                    closeField: "Close"
+                }],
+                navigator: {
+                    series: {
+                        type: "line",
+                        field: "Close"
+                    },
+                    select: {
+                        from: "2011/02/05",
+                        to: "2011/10/07"
+                    }
+                }
+            }).data("kendoStockChart");
+
+        }(jQuery));
+
+    </script>
+
+</body>
+</html>
