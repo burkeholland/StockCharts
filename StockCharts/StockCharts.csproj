@@ -301,6 +301,7 @@
       <LastGenOutput>StocksModel.cs</LastGenOutput>
     </Content>
     <Content Include="Content\Default\Thumbs.db" />
+    <Content Include="Content\msft.json" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
