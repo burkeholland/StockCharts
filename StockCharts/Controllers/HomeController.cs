@@ -13,6 +13,7 @@ namespace StockCharts.Controllers
 
         public ActionResult Index()
         {
+            ViewData["title"] = "StockChart Demo";
             return View();
         }
 

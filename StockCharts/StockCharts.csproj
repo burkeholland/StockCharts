@@ -39,15 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AttributeRouting">
-      <HintPath>..\packages\AttributeRouting.Core.3.1.5\lib\net40\AttributeRouting.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web">
-      <HintPath>..\packages\AttributeRouting.Core.Web.3.1.5\lib\net40\AttributeRouting.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="AttributeRouting.Web.Mvc">
-      <HintPath>..\packages\AttributeRouting.3.1.5\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -136,7 +127,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AttributeRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -168,59 +158,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\QuoteViewModel.cs" />
-    <Compile Include="Models\SymbolViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Stocks.sdf" />
-    <Content Include="Content\Default\editor.png" />
-    <Content Include="Content\Default\imagebrowser.png" />
-    <Content Include="Content\Default\loading-image.gif" />
-    <Content Include="Content\Default\loading.gif" />
-    <Content Include="Content\Default\slider-h.gif" />
-    <Content Include="Content\Default\slider-v.gif" />
-    <Content Include="Content\Default\sprite.png" />
-    <Content Include="Content\images\android-sprite.png" />
-    <Content Include="Content\images\iconmasks.svg" />
-    <Content Include="Content\images\icons.png" />
-    <Content Include="Content\images\ios-sprite.png" />
-    <Content Include="Content\kendo.common.min.css" />
     <Content Include="Content\kendo.dataviz.min.css" />
-    <Content Include="Content\kendo.default.min.css" />
-    <Content Include="Content\kendo.metro.min.css" />
-    <Content Include="Content\Metro\editor.png" />
-    <Content Include="Content\Metro\imagebrowser.png" />
-    <Content Include="Content\Metro\loading-image.gif" />
-    <Content Include="Content\Metro\loading.gif" />
-    <Content Include="Content\Metro\slider-h.gif" />
-    <Content Include="Content\Metro\slider-v.gif" />
-    <Content Include="Content\Metro\sprite.png" />
-    <Content Include="Content\textures\brushed-metal.png" />
-    <Content Include="Content\textures\dots1.png" />
-    <Content Include="Content\textures\dots10.png" />
-    <Content Include="Content\textures\dots11.png" />
-    <Content Include="Content\textures\dots12.png" />
-    <Content Include="Content\textures\dots13.png" />
-    <Content Include="Content\textures\dots2.png" />
-    <Content Include="Content\textures\dots3.png" />
-    <Content Include="Content\textures\dots4.png" />
-    <Content Include="Content\textures\dots5.png" />
-    <Content Include="Content\textures\dots6.png" />
-    <Content Include="Content\textures\dots7.png" />
-    <Content Include="Content\textures\dots8.png" />
-    <Content Include="Content\textures\dots9.png" />
-    <Content Include="Content\textures\glass-lighter.png" />
-    <Content Include="Content\textures\glass.png" />
-    <Content Include="Content\textures\highlight.png" />
-    <Content Include="Content\textures\leather1.png" />
-    <Content Include="Content\textures\leather2.png" />
-    <Content Include="Content\textures\noise.png" />
-    <Content Include="Content\textures\stripe1.png" />
-    <Content Include="Content\textures\stripe2.png" />
-    <Content Include="Content\textures\stripe3.png" />
-    <Content Include="Content\textures\stripe4.png" />
-    <Content Include="Content\textures\stripe5.png" />
-    <Content Include="Content\textures\stripe6.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -277,16 +219,33 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\Metro\Thumbs.db" />
-    <Content Include="Content\textures\Thumbs.db" />
-    <Content Include="Content\boeing-stock.json" />
-    <Content Include="Content\images\KendoUI.ttf" />
-    <Content Include="Content\images\KendoUI.woff" />
-    <Content Include="Content\images\Thumbs.db" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\kendo.dataviz.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <EntityDeploy Include="Data\StocksModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>StocksModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Data\StocksModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StocksModel.edmx</DependentUpon>
@@ -300,46 +259,6 @@
       <DependentUpon>StocksModel.edmx</DependentUpon>
       <LastGenOutput>StocksModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Content\Default\Thumbs.db" />
-    <Content Include="Content\msft.json" />
-    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.js" />
-    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
-    <Content Include="Scripts\jquery.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\kendo.all.min.js" />
-    <Content Include="Scripts\knockout-2.1.0.debug.js" />
-    <Content Include="Scripts\knockout-2.1.0.js" />
-    <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -357,7 +276,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>9695</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:2676/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

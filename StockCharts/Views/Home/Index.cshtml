@@ -7,80 +7,86 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>index</title>
-    @Styles.Render("~/Content/kendo.common.min.css")
-    @Styles.Render("~/Content/kendo.default.min.css")
+    <title>@ViewData["title"]</title>
     @Styles.Render("~/Content/kendo.dataviz.min.css")
-
     <style>
-
-        .wrapper {
-            padding-top: 100px;
-            width: 100%;
+        h2 {
+            margin-left: 25px;
         }
-
-        #stockChart {
-            margin: auto;
-            width: 768px;
-        }
-
     </style>
 </head>
 <body>
-    
-    <div class="wrapper">
-        <div id="stockChart"></div>
-    </div>
-    
+
+    <h2>@ViewData["title"]</h2>
+    <hr />
+
+    <div id="stockChart"></div>
 
     @Scripts.Render("~/Scripts/jquery.min.js")
-    @Scripts.Render("~/Scripts/kendo.all.min.js")
+    @Scripts.Render("~/Scripts/kendo.dataviz.min.js")
 
     <script>
 
-        // adding a comment to get AppHarbor to wake up
+        $(function () {
 
-        (function ($) {
-
-            var chart = $("#stockChart").kendoStockChart({
+            $("#stockChart").kendoStockChart({
                 dataSource: {
                     transport: {
-                        read: {
-                            url: function () {
-                                return "Content/msft.json";
-                            },
-                            dataType: "json",
-                            type: "GET"
-                        }
+                        read: "quotes.json"
                     },
-                    schema: {
-                        data: "Quotes"
+                    group: {
+                        field: "Symbol"
                     }
-                },
-                title: {
-                    text: "Microsoft Corporation (MSFT)"
                 },
                 dateField: "Date",
-                series: [{
-                    type: "candlestick",
-                    openField: "Open",
-                    highField: "High",
-                    lowField: "Low",
-                    closeField: "Close"
-                }],
+                panes: [
+                    {
+                        title: "Close",
+                        height: 200
+                    },
+                    {
+                        name: "volumePane",
+                        title: "Volume"
+                    }
+                ],
+                valueAxis: [
+                    {
+                        // Default axis
+                    },
+                    {
+                        name: "volume",
+                        pane: "volumePane",
+                        visible: false
+                    }
+                ],
+                series: [
+                     {
+                         type: "ohlc",
+                         openField: "Open",
+                         highField: "High",
+                         lowField: "Low",
+                         closeField: "Close"
+                     },
+                    {
+                        type: "column",
+                        field: "Volume",
+                        name: "Volume",
+                        axis: "volume"
+                    }
+                ],
                 navigator: {
                     series: {
-                        type: "line",
-                        field: "Close"
+                        type: "area",
+                        field: "Close",
+                        name: "Close"
                     },
                     select: {
-                        from: "2011/02/05",
-                        to: "2011/10/07"
+                        from: "2012/01/01"
                     }
                 }
-            }).data("kendoStockChart");
+            });
 
-        }(jQuery));
+        });
 
     </script>
 

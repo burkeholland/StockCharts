@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eebba00f4e8a4818896440225551a785" Name="Diagram1">
+      <Diagram DiagramId="9dd0091b6823491e9b772421ea6095c9" Name="Diagram1">
         <EntityTypeShape EntityType="StocksModel.Quote" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="StocksModel.Symbol" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="StocksModel.IX_Symbols" ManuallyRouted="false" />
