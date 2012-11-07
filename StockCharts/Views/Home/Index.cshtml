@@ -32,7 +32,7 @@
             $("#stockChart").kendoStockChart({
                 dataSource: {
                     transport: {
-                        read: "quotes.json"
+                        read: "@Url.Content("~/Content/quotes.json")"
                     },
                     group: {
                         field: "Symbol"
